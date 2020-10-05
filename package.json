@@ -1,0 +1,29 @@
+{
+  "name": "style-object",
+  "version": "1.0.0",
+  "description": "A simple way to make inline styles as objects, with optional render functions, for use with nanohtml/lit-html style of widget rendering",
+  "main": "style-object.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bluebie/style-object.git"
+  },
+  "keywords": [
+    "nanohtml",
+    "lit-html",
+    "css",
+    "inline-style",
+    "nanocomponent"
+  ],
+  "author": "Phoenix Fox",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Bluebie/style-object/issues"
+  },
+  "homepage": "https://github.com/Bluebie/style-object#readme",
+  "dependencies": {
+    "inline-style": "^2.0.0"
+  }
+}
