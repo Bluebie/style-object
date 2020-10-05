@@ -6,7 +6,7 @@ class StyleObject {
   /** create a style object, optionally with initial values (similar to calling .set())
    * @param {Object} initial - initial values to assign to the style object
    */
-  constructor(initial) {
+  constructor (initial) {
     if (initial) {
       this.set(initial)
     }
@@ -15,29 +15,41 @@ class StyleObject {
   /** set a bunch of css properties from a JSON-like object
    * @params {Object} obj
    */
-  set(obj) {
+  set (obj) {
     Object.entries(obj).forEach(([key, value])=> this[key] = value)
+  }
+  
+  /** outerHTML getter improves use with nanohtml, outputs escaped html
+   * @returns {String}
+   */
+  get outerHTML () {
+    return this.toString()
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;')
   }
 
   /** set CSS variables (with -- prefix added) in bulk, like .set() but prefixes keys with --
    * @params {Object} obj
    */
-  setVariables(obj) {
+  setVariables (obj) {
     Object.entries(obj).forEach(([key, value])=> this[`--${key}`] = value)
   }
 
   /** returns a string which can be used for inline html rendering server side or in nanohtml
    * @returns {String}
    */
-  toString() {
+  toString () {
     return inlineStyle(this.values())
   }
   
   /** returns an object with all functions resolved to concrete values for this moment
    * @returns {Object}
    */
-  values() {
-    let entries = Object.entries(this)
+  values () {
+    const entries = Object.entries(this)
     return Object.fromEntries(entries.map(([key, value])=> {
       if (typeof(value) == 'function') value = value()
       if (Array.isArray(value)) value = value.filter(x => x !== null).join(', ')
@@ -48,7 +60,7 @@ class StyleObject {
   /** update an element with the styles
    * @param {Element} element - a DOM element to update
    */
-  updateElement(element) {
+  updateElement (element) {
     Object.assign(element.style, this.values())
   }
 }
