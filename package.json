@@ -1,5 +1,5 @@
 {
-  "name": "style-object",
+  "name": "@bluebie/style-object",
   "version": "1.0.0",
   "description": "A simple way to make inline styles as objects, with optional render functions, for use with nanohtml/lit-html style of widget rendering",
   "main": "style-object.js",
@@ -25,5 +25,6 @@
   "homepage": "https://github.com/Bluebie/style-object#readme",
   "dependencies": {
     "inline-style": "^2.0.0"
-  }
+  },
+  "devDependencies": {}
 }
